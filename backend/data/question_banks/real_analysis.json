@@ -1,0 +1,47 @@
+{
+  "subject": "real_analysis",
+  "general_questions": [
+    "What does it mean for a sequence to converge?",
+    "Is every bounded sequence convergent? Why or why not?",
+    "Can you state the epsilon-delta definition of a limit or continuity?",
+    "Would you prefer to start with intuition, a worked example, or the formal definition?"
+  ],
+  "topic_questions": {
+    "convergent_sequence_implies_bounded": [
+      "What does it mean for a sequence to be bounded?",
+      "What does it mean for a sequence to converge to a limit L?",
+      "Do you think a convergent sequence could be unbounded? Why or why not?",
+      "Would you prefer to start with the intuition or the formal proof?"
+    ],
+    "uniform_continuity": [
+      "What is the definition of continuity at a point?",
+      "What is the difference between pointwise and uniform continuity?",
+      "Can you give an example of a continuous function that is not uniformly continuous?",
+      "Would you like intuition first or the formal definition first?"
+    ],
+    "cauchy_sequences": [
+      "What is a Cauchy sequence?",
+      "Is every convergent sequence a Cauchy sequence?",
+      "What is the difference between a Cauchy sequence and a convergent sequence?",
+      "Would you prefer to start with the definition or an example?"
+    ],
+    "bolzano_weierstrass_theorem": [
+      "What does it mean for a sequence to be bounded?",
+      "What is a subsequence?",
+      "Do you know any theorem about bounded sequences and convergence?",
+      "Would you prefer intuition first or the formal statement first?"
+    ],
+    "intermediate_value_theorem": [
+      "What does it mean for a function to be continuous on an interval?",
+      "If f(a) < 0 and f(b) > 0, what would you expect about f somewhere between a and b?",
+      "Can you think of a case where a continuous function skips a value?",
+      "Would you like to start with the intuition or the formal proof?"
+    ]
+  },
+  "misconception_probe_questions": [
+    "True or false: every bounded sequence converges.",
+    "True or false: if a function is continuous on an open interval, it is uniformly continuous.",
+    "True or false: every Cauchy sequence converges in any metric space.",
+    "True or false: if a sequence is monotone, it must converge."
+  ]
+}

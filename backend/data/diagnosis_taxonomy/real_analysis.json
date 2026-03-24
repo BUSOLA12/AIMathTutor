@@ -1,0 +1,488 @@
+{
+  "subject_area": "real_analysis",
+  "prerequisite_labels": [
+    "notation",
+    "function_basics",
+    "sequence_basics",
+    "subsequence",
+    "boundedness",
+    "convergence",
+    "cauchy_definition",
+    "continuity",
+    "uniform_continuity",
+    "epsilon_delta_reasoning",
+    "quantifier_reasoning",
+    "proof_logic",
+    "set_language"
+  ],
+  "misconception_labels": [
+    "wrong_implication",
+    "definition_confusion",
+    "notation_confusion",
+    "intuition_gap",
+    "proof_step_gap",
+    "overgeneralization",
+    "quantifier_confusion"
+  ],
+  "teaching_strategy_labels": [
+    "intuition_first",
+    "example_first",
+    "formal_definition_first",
+    "proof_first",
+    "prerequisite_micro_lesson_first"
+  ],
+  "topic_families": {
+    "sequences": [
+      "convergent_sequence_implies_bounded",
+      "cauchy_sequences",
+      "bolzano_weierstrass_theorem"
+    ],
+    "continuity": [
+      "uniform_continuity",
+      "intermediate_value_theorem"
+    ]
+  },
+  "general_questions": [
+    {
+      "template_id": "general.sequence.convergence_definition",
+      "text": "What does it mean for a sequence to converge?",
+      "aliases": [
+        "What does it mean for a sequence to converge to a limit L?"
+      ],
+      "question_role": "concept_check",
+      "topic_family": "sequences",
+      "skills": {
+        "sequence_basics": 0.4,
+        "convergence": 1.0
+      },
+      "misconception_probes": {
+        "definition_confusion": 0.7,
+        "intuition_gap": 0.5
+      },
+      "reference_answers": [
+        "A sequence converges when its terms get arbitrarily close to a single limit after some index."
+      ]
+    },
+    {
+      "template_id": "general.sequence.bounded_vs_convergent",
+      "text": "Is every bounded sequence convergent? Why or why not?",
+      "question_role": "misconception_probe",
+      "topic_family": "sequences",
+      "skills": {
+        "boundedness": 0.8,
+        "convergence": 0.8
+      },
+      "misconception_probes": {
+        "wrong_implication": 1.0,
+        "overgeneralization": 0.8
+      },
+      "reference_answers": [
+        "No. A bounded sequence need not converge, because it can oscillate without approaching a single limit."
+      ]
+    },
+    {
+      "template_id": "general.continuity.epsilon_delta",
+      "text": "Can you state the epsilon-delta definition of a limit or continuity?",
+      "question_role": "definition_probe",
+      "topic_family": "continuity",
+      "skills": {
+        "continuity": 0.8,
+        "epsilon_delta_reasoning": 1.0,
+        "quantifier_reasoning": 0.8
+      },
+      "misconception_probes": {
+        "definition_confusion": 0.9,
+        "quantifier_confusion": 1.0
+      },
+      "reference_answers": [
+        "For every epsilon greater than zero there exists a delta greater than zero such that the input being within delta forces the output within epsilon."
+      ]
+    },
+    {
+      "template_id": "general.preference.learning_style",
+      "text": "Would you prefer to start with intuition, a worked example, or the formal definition?",
+      "aliases": [
+        "Would you prefer intuition first or the formal definition first?",
+        "Would you prefer to start with the intuition or the formal proof?"
+      ],
+      "question_role": "preference",
+      "topic_family": "general",
+      "skills": {},
+      "misconception_probes": {},
+      "reference_answers": [
+        "I would like intuition first.",
+        "Please start with a worked example.",
+        "I prefer the formal definition first."
+      ]
+    }
+  ],
+  "misconception_probe_questions": [
+    {
+      "template_id": "probe.sequence.bounded_implies_convergent",
+      "text": "True or false: every bounded sequence converges.",
+      "question_role": "misconception_probe",
+      "topic_family": "sequences",
+      "skills": {
+        "boundedness": 0.7,
+        "convergence": 0.7
+      },
+      "misconception_probes": {
+        "wrong_implication": 1.0,
+        "overgeneralization": 0.8
+      },
+      "reference_answers": [
+        "False. Boundedness alone does not force convergence."
+      ]
+    },
+    {
+      "template_id": "probe.continuity.open_interval_uniform",
+      "text": "True or false: if a function is continuous on an open interval, it is uniformly continuous.",
+      "question_role": "misconception_probe",
+      "topic_family": "continuity",
+      "skills": {
+        "continuity": 0.7,
+        "uniform_continuity": 1.0
+      },
+      "misconception_probes": {
+        "wrong_implication": 0.8,
+        "overgeneralization": 1.0
+      },
+      "reference_answers": [
+        "False. Continuity on an open interval does not always imply uniform continuity."
+      ]
+    }
+  ],
+  "topics": {
+    "convergent_sequence_implies_bounded": {
+      "family": "sequences",
+      "question_templates": [
+        {
+          "template_id": "csib.bounded.definition",
+          "text": "What does it mean for a sequence to be bounded?",
+          "question_role": "concept_check",
+          "skills": {
+            "sequence_basics": 0.5,
+            "boundedness": 1.0
+          },
+          "misconception_probes": {
+            "definition_confusion": 0.7,
+            "notation_confusion": 0.3
+          },
+          "reference_answers": [
+            "A sequence is bounded when all its terms stay within some fixed interval."
+          ]
+        },
+        {
+          "template_id": "csib.convergence.definition",
+          "text": "What does it mean for a sequence to converge to a limit L?",
+          "aliases": [
+            "What does it mean for a sequence to converge?"
+          ],
+          "question_role": "definition_probe",
+          "skills": {
+            "convergence": 1.0,
+            "notation": 0.3
+          },
+          "misconception_probes": {
+            "definition_confusion": 0.8,
+            "intuition_gap": 0.6
+          },
+          "reference_answers": [
+            "It means the terms eventually get arbitrarily close to L."
+          ]
+        },
+        {
+          "template_id": "csib.unbounded.counterexample",
+          "text": "Do you think a convergent sequence could be unbounded? Why or why not?",
+          "question_role": "reasoning_probe",
+          "skills": {
+            "boundedness": 0.9,
+            "convergence": 0.9,
+            "proof_logic": 0.4
+          },
+          "misconception_probes": {
+            "wrong_implication": 0.7,
+            "proof_step_gap": 0.6
+          },
+          "reference_answers": [
+            "No. If a sequence converges, then eventually it stays near the limit, so it cannot be unbounded."
+          ]
+        },
+        {
+          "template_id": "csib.preference.path",
+          "text": "Would you prefer to start with the intuition or the formal proof?",
+          "aliases": [
+            "Would you prefer intuition first or the formal proof first?"
+          ],
+          "question_role": "preference",
+          "skills": {},
+          "misconception_probes": {},
+          "reference_answers": [
+            "Intuition first.",
+            "Formal proof first."
+          ]
+        }
+      ]
+    },
+    "uniform_continuity": {
+      "family": "continuity",
+      "question_templates": [
+        {
+          "template_id": "uc.continuity.point_definition",
+          "text": "What is the definition of continuity at a point?",
+          "question_role": "definition_probe",
+          "skills": {
+            "continuity": 1.0,
+            "epsilon_delta_reasoning": 0.8
+          },
+          "misconception_probes": {
+            "definition_confusion": 0.8,
+            "quantifier_confusion": 0.7
+          },
+          "reference_answers": [
+            "A function is continuous at a point if inputs close to the point make outputs close to the function value."
+          ]
+        },
+        {
+          "template_id": "uc.pointwise_vs_uniform",
+          "text": "What is the difference between pointwise and uniform continuity?",
+          "question_role": "concept_check",
+          "skills": {
+            "continuity": 0.8,
+            "uniform_continuity": 1.0,
+            "quantifier_reasoning": 0.8
+          },
+          "misconception_probes": {
+            "definition_confusion": 0.8,
+            "quantifier_confusion": 1.0
+          },
+          "reference_answers": [
+            "Uniform continuity uses one delta that works across the whole domain, not a different delta at each point."
+          ]
+        },
+        {
+          "template_id": "uc.counterexample",
+          "text": "Can you give an example of a continuous function that is not uniformly continuous?",
+          "question_role": "example_probe",
+          "skills": {
+            "continuity": 0.7,
+            "uniform_continuity": 1.0
+          },
+          "misconception_probes": {
+            "intuition_gap": 0.5,
+            "overgeneralization": 0.7
+          },
+          "reference_answers": [
+            "A standard example is x squared on the whole real line."
+          ]
+        },
+        {
+          "template_id": "uc.preference.path",
+          "text": "Would you like intuition first or the formal definition first?",
+          "aliases": [
+            "Would you prefer intuition first or the formal definition first?"
+          ],
+          "question_role": "preference",
+          "skills": {},
+          "misconception_probes": {},
+          "reference_answers": [
+            "Intuition first.",
+            "Formal definition first."
+          ]
+        }
+      ]
+    },
+    "cauchy_sequences": {
+      "family": "sequences",
+      "question_templates": [
+        {
+          "template_id": "cs.cauchy.definition",
+          "text": "What is a Cauchy sequence?",
+          "question_role": "definition_probe",
+          "skills": {
+            "cauchy_definition": 1.0,
+            "quantifier_reasoning": 0.7
+          },
+          "misconception_probes": {
+            "definition_confusion": 0.8,
+            "quantifier_confusion": 0.7
+          },
+          "reference_answers": [
+            "A Cauchy sequence has terms that become arbitrarily close to each other after some point."
+          ]
+        },
+        {
+          "template_id": "cs.convergent_implies_cauchy",
+          "text": "Is every convergent sequence a Cauchy sequence?",
+          "question_role": "theorem_probe",
+          "skills": {
+            "convergence": 0.7,
+            "cauchy_definition": 0.9
+          },
+          "misconception_probes": {
+            "wrong_implication": 0.5,
+            "definition_confusion": 0.4
+          },
+          "reference_answers": [
+            "Yes. In a metric space every convergent sequence is Cauchy."
+          ]
+        },
+        {
+          "template_id": "cs.cauchy_vs_convergent",
+          "text": "What is the difference between a Cauchy sequence and a convergent sequence?",
+          "question_role": "comparison_probe",
+          "skills": {
+            "cauchy_definition": 0.9,
+            "convergence": 0.9,
+            "proof_logic": 0.3
+          },
+          "misconception_probes": {
+            "definition_confusion": 0.7,
+            "intuition_gap": 0.5
+          },
+          "reference_answers": [
+            "Convergent sequences approach a limit, while Cauchy sequences only require the terms to get close to each other."
+          ]
+        },
+        {
+          "template_id": "cs.preference.path",
+          "text": "Would you prefer to start with the definition or an example?",
+          "question_role": "preference",
+          "skills": {},
+          "misconception_probes": {},
+          "reference_answers": [
+            "Definition first.",
+            "An example first."
+          ]
+        }
+      ]
+    },
+    "bolzano_weierstrass_theorem": {
+      "family": "sequences",
+      "question_templates": [
+        {
+          "template_id": "bw.bounded.definition",
+          "text": "What does it mean for a sequence to be bounded?",
+          "question_role": "concept_check",
+          "skills": {
+            "boundedness": 1.0,
+            "sequence_basics": 0.4
+          },
+          "misconception_probes": {
+            "definition_confusion": 0.7
+          },
+          "reference_answers": [
+            "It means all terms stay inside some fixed bound."
+          ]
+        },
+        {
+          "template_id": "bw.subsequence.definition",
+          "text": "What is a subsequence?",
+          "question_role": "definition_probe",
+          "skills": {
+            "subsequence": 1.0,
+            "sequence_basics": 0.6
+          },
+          "misconception_probes": {
+            "definition_confusion": 0.8,
+            "notation_confusion": 0.4
+          },
+          "reference_answers": [
+            "A subsequence is a new sequence formed by taking terms from the original sequence in increasing index order."
+          ]
+        },
+        {
+          "template_id": "bw.theorem_recall",
+          "text": "Do you know any theorem about bounded sequences and convergence?",
+          "question_role": "theorem_probe",
+          "skills": {
+            "boundedness": 0.6,
+            "subsequence": 0.6,
+            "convergence": 0.7
+          },
+          "misconception_probes": {
+            "proof_step_gap": 0.5,
+            "intuition_gap": 0.4
+          },
+          "reference_answers": [
+            "The Bolzano-Weierstrass theorem says every bounded sequence has a convergent subsequence."
+          ]
+        },
+        {
+          "template_id": "bw.preference.path",
+          "text": "Would you prefer intuition first or the formal statement first?",
+          "question_role": "preference",
+          "skills": {},
+          "misconception_probes": {},
+          "reference_answers": [
+            "Intuition first.",
+            "Formal statement first."
+          ]
+        }
+      ]
+    },
+    "intermediate_value_theorem": {
+      "family": "continuity",
+      "question_templates": [
+        {
+          "template_id": "ivt.continuity.interval",
+          "text": "What does it mean for a function to be continuous on an interval?",
+          "question_role": "definition_probe",
+          "skills": {
+            "continuity": 1.0,
+            "function_basics": 0.6
+          },
+          "misconception_probes": {
+            "definition_confusion": 0.8,
+            "notation_confusion": 0.3
+          },
+          "reference_answers": [
+            "It means the function is continuous at every point of the interval."
+          ]
+        },
+        {
+          "template_id": "ivt.sign_change_expectation",
+          "text": "If f(a) < 0 and f(b) > 0, what would you expect about f somewhere between a and b?",
+          "question_role": "intuition_probe",
+          "skills": {
+            "continuity": 0.8,
+            "set_language": 0.3
+          },
+          "misconception_probes": {
+            "intuition_gap": 0.8,
+            "wrong_implication": 0.5
+          },
+          "reference_answers": [
+            "I would expect the function to take the value zero somewhere between a and b."
+          ]
+        },
+        {
+          "template_id": "ivt.skip_value",
+          "text": "Can you think of a case where a continuous function skips a value?",
+          "question_role": "misconception_probe",
+          "skills": {
+            "continuity": 0.8
+          },
+          "misconception_probes": {
+            "wrong_implication": 0.7,
+            "overgeneralization": 0.4
+          },
+          "reference_answers": [
+            "No. A continuous function on an interval does not skip intermediate values."
+          ]
+        },
+        {
+          "template_id": "ivt.preference.path",
+          "text": "Would you like to start with the intuition or the formal proof?",
+          "question_role": "preference",
+          "skills": {},
+          "misconception_probes": {},
+          "reference_answers": [
+            "Intuition first.",
+            "Formal proof first."
+          ]
+        }
+      ]
+    }
+  }
+}

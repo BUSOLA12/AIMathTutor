@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "source": "sklearn_text_baseline",
+  "model_type": "sklearn_text_baseline",
+  "holdout_topics": [
+    "uniform_continuity"
+  ],
+  "thresholds": {
+    "missing_prerequisites": 0.45,
+    "misconception_labels": 0.45
+  },
+  "label_sets": {
+    "missing_prerequisites": [
+      "boundedness",
+      "continuity",
+      "convergence"
+    ],
+    "misconception_labels": [
+      "definition_confusion",
+      "intuition_gap",
+      "wrong_implication"
+    ]
+  },
+  "metrics": {
+    "learner_level": {
+      "macro_f1": 0.2222,
+      "balanced_accuracy": 0.25
+    },
+    "recommended_teaching_strategy": {
+      "macro_f1": 0.1667,
+      "balanced_accuracy": 0.3333
+    },
+    "missing_prerequisites": {
+      "micro_f1": 0.0,
+      "macro_f1": 0.0
+    },
+    "misconception_labels": {
+      "micro_f1": 0.0,
+      "macro_f1": 0.0
+    }
+  },
+  "tasks": {
+    "learner_level": {
+      "model_file": "learner_level.pkl"
+    },
+    "recommended_teaching_strategy": {
+      "model_file": "recommended_teaching_strategy.pkl"
+    },
+    "missing_prerequisites": {
+      "model_file": "missing_prerequisites.pkl"
+    },
+    "misconception_labels": {
+      "model_file": "misconception_labels.pkl"
+    }
+  }
+}

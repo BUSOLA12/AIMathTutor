@@ -1,0 +1,91 @@
+{
+  "version": 2,
+  "source": "sklearn_text_baseline_v2",
+  "model_type": "sklearn_text_baseline",
+  "holdout_topics": [
+    "uniform_continuity"
+  ],
+  "probe_keys": [
+    "boundedness",
+    "cauchy_definition",
+    "continuity",
+    "convergence",
+    "epsilon_delta_reasoning",
+    "function_basics",
+    "misconception::definition_confusion",
+    "misconception::intuition_gap",
+    "misconception::notation_confusion",
+    "misconception::overgeneralization",
+    "misconception::proof_step_gap",
+    "misconception::quantifier_confusion",
+    "misconception::wrong_implication",
+    "proof_logic",
+    "quantifier_reasoning",
+    "sequence_basics",
+    "set_language",
+    "subsequence",
+    "uniform_continuity"
+  ],
+  "thresholds": {
+    "missing_prerequisites": {
+      "probe_threshold": 0.7,
+      "behavior_threshold": 0.45
+    },
+    "misconception_labels": {
+      "definition_confusion": 0.6208444321330443,
+      "intuition_gap": 0.6724480806068996,
+      "wrong_implication": 0.54355279591477
+    }
+  },
+  "label_sets": {
+    "missing_prerequisites": [
+      "boundedness",
+      "cauchy_definition",
+      "continuity",
+      "convergence",
+      "subsequence",
+      "uniform_continuity"
+    ],
+    "misconception_labels": [
+      "definition_confusion",
+      "intuition_gap",
+      "wrong_implication"
+    ]
+  },
+  "metrics": {
+    "learner_level": {
+      "macro_f1": 0.6072,
+      "balanced_accuracy": 0.65
+    },
+    "recommended_teaching_strategy": {
+      "macro_f1": 0.5485,
+      "balanced_accuracy": 0.6104
+    },
+    "missing_prerequisites": {
+      "micro_f1": 0.5977,
+      "macro_f1": 0.1953
+    },
+    "misconception_labels": {
+      "micro_f1": 0.3408,
+      "macro_f1": 0.2961
+    }
+  },
+  "tasks": {
+    "learner_level": {
+      "model_file": "learner_level.pkl",
+      "model_type": "bundled"
+    },
+    "recommended_teaching_strategy": {
+      "model_file": "recommended_teaching_strategy.pkl",
+      "model_type": "bundled"
+    },
+    "missing_prerequisites": {
+      "model_file": "missing_prerequisites_behavior.pkl",
+      "model_type": "hybrid_rule_behavior"
+    },
+    "misconception_labels": {
+      "model_file": "misconception_labels.pkl",
+      "model_type": "bundled"
+    }
+  }
+}

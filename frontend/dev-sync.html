@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KS Sync Harness</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  ></script>
+  <link rel="stylesheet" href="src/css/main.css" />
+  <style>
+    .dev-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 420px);
+      min-height: 100vh;
+    }
+    .dev-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 20px;
+      border-left: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .dev-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .dev-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .dev-log {
+      min-height: 180px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-2);
+      overflow: auto;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      white-space: pre-wrap;
+    }
+    .dev-label {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 960px) {
+      .dev-shell {
+        grid-template-columns: 1fr;
+      }
+      .dev-panel {
+        border-left: none;
+        border-top: 1px solid var(--border);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="dev-shell">
+    <section class="whiteboard-panel">
+      <div class="whiteboard-header">
+        <span class="panel-title">Sync Harness</span>
+        <div class="whiteboard-meta">
+          <span id="voice-status" class="voice-status is-muted">Idle</span>
+        </div>
+      </div>
+      <div class="whiteboard" id="whiteboard">
+        <p class="whiteboard-placeholder">Choose a fixture and run it.</p>
+      </div>
+      <audio id="lesson-audio" preload="auto"></audio>
+    </section>
+
+    <section class="dev-panel">
+      <div class="dev-controls">
+        <label class="dev-label" for="fixture-select">Fixture</label>
+        <select id="fixture-select">
+          <option value="browser-speech-text">Browser speech: prose</option>
+          <option value="browser-speech-math">Browser speech: math</option>
+          <option value="math-rendering-regression">Math rendering regression</option>
+          <option value="interrupt-resume">Interrupt and resume</option>
+          <option value="audio-error-fallback">Audio load error fallback</option>
+        </select>
+
+        <label class="dev-row" for="debug-toggle">
+          <input id="debug-toggle" type="checkbox" />
+          <span>Enable sync debug trace</span>
+        </label>
+
+        <div class="dev-row">
+          <button id="run-fixture" class="btn btn-primary">Run fixture</button>
+          <button id="interrupt-fixture" class="btn btn-secondary">Interrupt</button>
+          <button id="resume-fixture" class="btn btn-secondary">Resume</button>
+          <button id="clear-fixture" class="btn btn-secondary">Clear</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="dev-label">Resume Cursor</div>
+        <pre id="resume-log" class="dev-log">No interruption captured yet.</pre>
+      </div>
+
+      <div>
+        <div class="dev-label">Sync Events</div>
+        <pre id="sync-log" class="dev-log">Sync debug is off.</pre>
+      </div>
+    </section>
+  </main>
+
+  <script src="src/js/api.js"></script>
+  <script src="src/js/whiteboard.js"></script>
+  <script src="src/js/dev-sync.js"></script>
+</body>
+</html>

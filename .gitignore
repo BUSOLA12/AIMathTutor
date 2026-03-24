@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables (never commit secrets)
+.env
+.env.*
+!.env.example
+
+# ML model binaries (large files — regenerate with training scripts)
+backend/data/models/**/*.pkl
+backend/data/models/**/*.joblib
+
+# Database
+*.db
+*.sqlite3
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# Node
+frontend/node_modules/
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Alembic (keep migration scripts, ignore generated env files)
+backend/alembic/versions/__pycache__/

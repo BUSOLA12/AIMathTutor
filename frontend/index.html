@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Math Tutor</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false }
+      ],
+      throwOnError: false
+    })"
+  ></script>
+
+  <link rel="stylesheet" href="src/css/main.css" />
+</head>
+<body>
+  <header class="app-header">
+    <span class="logo">AI Math Tutor</span>
+    <span id="session-badge" class="session-badge hidden"></span>
+  </header>
+
+  <main class="app-main">
+    <section class="whiteboard-panel" id="whiteboard-panel">
+      <div class="whiteboard-header">
+        <span class="panel-title">Whiteboard</span>
+        <div class="whiteboard-meta">
+          <span id="voice-status" class="voice-status is-muted">Idle</span>
+          <span id="phase-indicator" class="phase-indicator">-</span>
+        </div>
+      </div>
+      <div class="whiteboard" id="whiteboard">
+        <p class="whiteboard-placeholder">The tutoring session will appear here.</p>
+      </div>
+      <audio id="lesson-audio" preload="auto"></audio>
+    </section>
+
+    <section class="interaction-panel">
+      <div class="card" id="card-topic">
+        <h2>What would you like to learn?</h2>
+        <textarea
+          id="topic-input"
+          placeholder="e.g. Explain uniform continuity, or paste a theorem..."
+          rows="3"
+        ></textarea>
+        <button id="btn-start" class="btn btn-primary">Start Session</button>
+      </div>
+
+      <div class="card hidden" id="card-diagnosis">
+        <h2>Quick diagnostic</h2>
+        <p class="card-sub">Answer briefly. This helps personalise your lesson.</p>
+        <div id="diagnostic-questions"></div>
+        <button id="btn-submit-diagnosis" class="btn btn-primary">Submit Answers</button>
+      </div>
+
+      <div class="card card-chat hidden" id="card-lesson">
+        <div class="chat-messages" id="chat-messages"></div>
+
+        <div class="chat-input-row">
+          <input
+            type="text"
+            id="interrupt-input"
+            placeholder="Ask a question or request an example..."
+          />
+          <button id="btn-interrupt" class="btn btn-secondary">Ask</button>
+        </div>
+
+        <button id="btn-next-section" class="btn btn-primary btn-full">Continue ></button>
+      </div>
+
+      <div class="card hidden" id="card-evaluation">
+        <h2>Understanding check</h2>
+        <div id="evaluation-questions"></div>
+        <button id="btn-submit-evaluation" class="btn btn-primary">Submit</button>
+      </div>
+
+      <div class="card hidden" id="card-results">
+        <h2>Session complete</h2>
+        <div id="results-content"></div>
+        <button id="btn-new-session" class="btn btn-secondary">Start a new topic</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Loading overlay -->
+  <div id="loading-overlay" class="hidden" role="status" aria-busy="true">
+    <div class="loading-card">
+      <div class="loader-orbitals">
+        <div class="loader-orbit loader-orbit-1"><div class="loader-dot"></div></div>
+        <div class="loader-orbit loader-orbit-2"><div class="loader-dot"></div></div>
+        <div class="loader-orbit loader-orbit-3"><div class="loader-dot"></div></div>
+        <div class="loader-core"></div>
+      </div>
+      <div class="loader-label">
+        <span id="loading-message">Thinking</span><span class="loader-ellipsis"><span>.</span><span>.</span><span>.</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <script src="src/js/api.js"></script>
+  <script src="src/js/whiteboard.js"></script>
+  <script src="src/js/session.js"></script>
+  <script src="src/js/app.js"></script>
+</body>
+</html>

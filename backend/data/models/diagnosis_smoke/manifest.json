@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "source": "sklearn_text_baseline",
+  "model_type": "sklearn_text_baseline",
+  "holdout_topics": [
+    "uniform_continuity"
+  ],
+  "thresholds": {
+    "missing_prerequisites": 0.45,
+    "misconception_labels": 0.45
+  },
+  "tasks": {
+    "learner_level": {
+      "model_file": "learner_level.pkl"
+    },
+    "recommended_teaching_strategy": {
+      "model_file": "recommended_teaching_strategy.pkl"
+    },
+    "missing_prerequisites": {
+      "model_file": "missing_prerequisites.pkl"
+    },
+    "misconception_labels": {
+      "model_file": "misconception_labels.pkl"
+    }
+  }
+}
