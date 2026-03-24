@@ -204,8 +204,15 @@ async function deliverAdvanceResponse(response) {
     return;
   }
 
-  await playTutorPackage(response);
+  const playbackResult = await playTutorPackage(response);
   Session.setPhase('teaching');
+
+  if (!playbackResult?.cancelled) {
+    const isLast = Session.isLessonComplete();
+    addChatMessage('tutor', isLast
+      ? 'That completes the lesson. Press **Continue** when you are ready for the final assessment.'
+      : 'Press **Continue** when you are ready to move on.');
+  }
 }
 
 document.getElementById('btn-start').addEventListener('click', async () => {

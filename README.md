@@ -468,7 +468,7 @@ AWS_SECRET_ACCESS_KEY=
 AWS_REGION=us-east-1
 
 # CORS (production)
-FRONTEND_ORIGINS=https://your-frontend.vercel.app
+FRONTEND_ORIGINS=https://your-frontend.netlify.app
 ```
 
 ### Run Tests
@@ -494,11 +494,12 @@ fly secrets set GROQ_API_KEY=... DATABASE_URL=... REDIS_URL=... FRONTEND_ORIGINS
 fly deploy
 ```
 
-### Frontend → Vercel
+### Frontend → Netlify
 
 ```bash
 cd frontend
-vercel
+npx netlify-cli deploy --dir .          # draft preview
+npx netlify-cli deploy --dir . --prod   # production
 ```
 
 ---
@@ -573,7 +574,7 @@ The core architecture decisions, system design, and product vision were made by 
 
 ### Sustainability
 
-- Hosted on Fly.io (backend) and Vercel (frontend) — minimal operational overhead
+- Hosted on Fly.io (backend) and Netlify (frontend) — minimal operational overhead
 - LLM inference uses cost-efficient fast-tier models by default
 - ML diagnosis layer improves automatically as more students use the system
 - Designed for institutional licensing (universities, online learning platforms) and direct student subscription
@@ -592,7 +593,7 @@ The core architecture decisions, system design, and product vision were made by 
 | Math Rendering | KaTeX (CDN) |
 | TTS | AWS Polly (mock mode for local dev) |
 | Backend Hosting | Fly.io |
-| Frontend Hosting | Vercel |
+| Frontend Hosting | Netlify |
 
 ---
 

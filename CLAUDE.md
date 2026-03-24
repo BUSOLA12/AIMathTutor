@@ -21,7 +21,7 @@ Design documents:
 | Session cache | Redis (Fly.io) — live session state during active tutoring |
 | Frontend | Vanilla JS, HTML, CSS + KaTeX (math rendering via CDN) |
 | Backend hosting | Fly.io (`backend/fly.toml`) |
-| Frontend hosting | Vercel (`frontend/vercel.json`) |
+| Frontend hosting | Netlify (`frontend/netlify.toml`) |
 
 ## Project Structure
 
@@ -130,11 +130,12 @@ fly deploy
 
 Use `FRONTEND_ORIGINS` (comma-separated) as the primary CORS setting. `FRONTEND_URL` is kept as a legacy fallback.
 
-**Deploy frontend to Vercel:**
+**Deploy frontend to Netlify:**
 
 ```bash
 cd frontend
-vercel
+npx netlify-cli deploy --dir .          # draft preview
+npx netlify-cli deploy --dir . --prod   # production
 ```
 
 ## Architecture — LangGraph State Machine
