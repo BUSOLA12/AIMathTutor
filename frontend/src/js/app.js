@@ -67,6 +67,17 @@ function hideLoading() {
   hide('loading-overlay');
 }
 
+function addContinuePrompt(message) {
+  const container = document.getElementById('chat-messages');
+  // Remove any existing prompt so there's only ever one
+  container.querySelectorAll('.continue-prompt').forEach(el => el.remove());
+  const el = document.createElement('div');
+  el.className = 'continue-prompt';
+  el.innerHTML = `<span>${message}</span><span class="cp-arrow">→</span>`;
+  container.appendChild(el);
+  container.scrollTop = container.scrollHeight;
+}
+
 function addChatMessage(role, content) {
   const container = document.getElementById('chat-messages');
   const bubble = document.createElement('div');
@@ -209,9 +220,9 @@ async function deliverAdvanceResponse(response) {
 
   if (!playbackResult?.cancelled) {
     const isLast = Session.isLessonComplete();
-    addChatMessage('tutor', isLast
-      ? 'That completes the lesson. Press **Continue** when you are ready for the final assessment.'
-      : 'Press **Continue** when you are ready to move on.');
+    addContinuePrompt(isLast
+      ? 'Section complete — press Continue for the final assessment'
+      : 'Section complete — press Continue to move on');
   }
 }
 

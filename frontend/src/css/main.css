@@ -390,6 +390,35 @@ input[type="text"]:focus {
   text-transform: uppercase;
 }
 
+.continue-prompt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-align: center;
+  animation: fade-in 0.3s ease;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35);
+}
+
+.continue-prompt .cp-arrow {
+  display: inline-block;
+  font-size: 1.1rem;
+  animation: bounce-x 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes bounce-x {
+  from { transform: translateX(0); }
+  to   { transform: translateX(6px); }
+}
+
 .chat-input-row {
   display: flex;
   gap: 8px;
