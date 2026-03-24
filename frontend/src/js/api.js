@@ -3,8 +3,9 @@
  * Set API_BASE to your Fly.io backend URL in production.
  */
 
-const INFERRED_API_HOST = window.location.hostname || 'localhost';
-const API_BASE = window.API_BASE || `http://${INFERRED_API_HOST}:8003`;
+const _IS_LOCAL = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+const API_BASE = window.API_BASE
+  || (_IS_LOCAL ? `http://localhost:8003` : 'https://ai-math-tutor-api.fly.dev');
 
 class ApiError extends Error {
   constructor(message, type = 'server_error', status = 0) {

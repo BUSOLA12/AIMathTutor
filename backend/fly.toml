@@ -1,4 +1,4 @@
-app = "ks-math-tutor-api"
+app = "ai-math-tutor-api"
 primary_region = "lax"
 
 [build]

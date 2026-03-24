@@ -49,3 +49,5 @@ htmlcov/
 
 # Alembic (keep migration scripts, ignore generated env files)
 backend/alembic/versions/__pycache__/
+CLAUDE.md
+install.ps1
