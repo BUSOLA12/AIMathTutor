@@ -67,6 +67,21 @@ function hideLoading() {
   hide('loading-overlay');
 }
 
+function addWhiteboardContinuePrompt(message) {
+  const board = document.getElementById('whiteboard');
+  if (!board) return;
+  board.querySelectorAll('.wb-continue-banner').forEach(el => el.remove());
+  const banner = document.createElement('div');
+  banner.className = 'wb-continue-banner';
+  banner.innerHTML = `<span>${message}</span><span class="wb-cp-arrow">→</span>`;
+  board.appendChild(banner);
+  banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function clearWhiteboardContinuePrompt() {
+  document.getElementById('whiteboard')?.querySelectorAll('.wb-continue-banner').forEach(el => el.remove());
+}
+
 function addContinuePrompt(message) {
   const container = document.getElementById('chat-messages');
   // Remove any existing prompt so there's only ever one
@@ -220,9 +235,11 @@ async function deliverAdvanceResponse(response) {
 
   if (!playbackResult?.cancelled) {
     const isLast = Session.isLessonComplete();
-    addContinuePrompt(isLast
+    const msg = isLast
       ? 'Section complete — press Continue for the final assessment'
-      : 'Section complete — press Continue to move on');
+      : 'Section complete — press Continue to move on';
+    addContinuePrompt(msg);
+    addWhiteboardContinuePrompt(msg);
   }
 }
 
@@ -300,6 +317,7 @@ document.getElementById('btn-submit-diagnosis').addEventListener('click', async 
 });
 
 document.getElementById('btn-next-section').addEventListener('click', async () => {
+  clearWhiteboardContinuePrompt();
   setContinueBusy(true);
   showLoading('Preparing next section');
   try {
